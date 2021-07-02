@@ -1,5 +1,5 @@
 {
-  "name": "angular-textarena",
+  "name": "@itsumma/ng-textarena",
   "version": "0.0.1",
   "peerDependencies": {
     "@angular/common": "^10.2.4",
@@ -8,5 +8,24 @@
   "dependencies": {
     "tslib": "^2.0.0",
     "textarena": "@1.1.17"
-  }
+  },
+  "description": "This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.2.4.",
+  "main": "karma.conf.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/devopsprodigy/ng-textarena.git"
+  },
+  "keywords": [
+    "angular",
+    "textarena"
+  ],
+  "author": "ITSumma",
+  "license": "AGPL-3.0-only",
+  "bugs": {
+    "url": "https://github.com/devopsprodigy/ng-textarena/issues"
+  },
+  "homepage": "https://github.com/devopsprodigy/ng-textarena#readme"
 }
