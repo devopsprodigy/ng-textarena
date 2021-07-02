@@ -20,7 +20,7 @@ import {AngularTextarenaService} from '../angular-textarena.service';
   ],
 })
 export class AngularTextarenaFormableComponent implements OnInit, ControlValueAccessor {
-  @Input() settings: TextarenaOptions = {};
+  @Input() settings: TextarenaOptions | undefined;
   @ViewChild('textArenaContainer', {static: true}) textArenaContainer: ElementRef;
   private html: TextarenaData;
   onChange = (value: any) => {};
