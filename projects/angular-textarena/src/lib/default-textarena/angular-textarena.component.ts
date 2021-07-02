@@ -1,9 +1,17 @@
-import {Component, OnInit, Output, EventEmitter, Input, ViewChild, ElementRef} from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output,
+  ViewChild,
+} from '@angular/core';
 import Textarena from 'textarena';
 import TextarenaOptions from 'textarena/lib/interfaces/TextarenaOptions';
 import TextarenaData from 'textarena/lib/interfaces/TextarenaData';
-import dataHtml from '../default/dataHtml';
-import {AngularTextarenaService} from '../angular-textarena.service';
+import { AngularTextarenaService } from '../angular-textarena.service';
+
 @Component({
   selector: 'ng-textarena',
   template: ' <div id="txt-container" #textArenaContainer></div> ',
@@ -19,7 +27,8 @@ export class AngularTextarenaComponent implements OnInit {
   @Input() settings: TextarenaOptions = {};
   @Output() export = new EventEmitter<TextarenaData>();
   @Output() ready = new EventEmitter<TextarenaData>();
-  @ViewChild('textArenaContainer', {static: true}) textArenaContainer: ElementRef;
+  @ViewChild('textArenaContainer', { static: true })
+  textArenaContainer: ElementRef;
   constructor(private taService: AngularTextarenaService) {}
 
   ngOnInit(): void {
