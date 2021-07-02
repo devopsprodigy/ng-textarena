@@ -1,8 +1,8 @@
-import {Component, OnInit, Output, EventEmitter, Input, ViewChild, ElementRef, forwardRef} from '@angular/core';
+import {Component, OnInit, Output, EventEmitter, Input, ViewChild, ElementRef, forwardRef, Optional, Host, SkipSelf} from '@angular/core';
 import Textarena from '@itsumma/textarena';
 import TextarenaOptions from '@itsumma/textarena/lib/interfaces/TextarenaOptions';
 import TextarenaData from '@itsumma/textarena/lib/interfaces/TextarenaData';
-import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
+import {AbstractControl, ControlContainer, ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
 import {AngularTextarenaService} from '../angular-textarena.service';
 @Component({
   selector: 'ng-textarena-formable',
@@ -21,15 +21,22 @@ import {AngularTextarenaService} from '../angular-textarena.service';
 })
 export class AngularTextarenaFormableComponent implements OnInit, ControlValueAccessor {
   @Input() settings: TextarenaOptions | undefined;
+  @Input() formControlName: string;
   @ViewChild('textArenaContainer', {static: true}) textArenaContainer: ElementRef;
   private html: TextarenaData;
   onChange = (value: any) => {};
   onTouched = () => {};
-  constructor(private taService: AngularTextarenaService) {}
+
+  constructor(
+      private taService: AngularTextarenaService,
+      @Optional() @Host() @SkipSelf()
+      private controlContainer: ControlContainer
+  ) {}
 
   ngOnInit(): void {
     const elem = this.textArenaContainer.nativeElement;
     const options = this.taService.createOptions(this.settings);
+    const {value: initData} = this.controlContainer.control.get(this.formControlName);
     const textArena = new Textarena(elem, {
       onChange: (e) => {
         this.updateValue(e);
@@ -39,6 +46,7 @@ export class AngularTextarenaFormableComponent implements OnInit, ControlValueAc
           this.updateValue(e);
         }, 0);
       },
+      initData,
       ...options,
     });
   }

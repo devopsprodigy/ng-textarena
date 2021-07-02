@@ -28,7 +28,7 @@
               "src/assets"
             ],
             "styles": [
-              "node_modules/textarena/scss/style.scss",
+              "node_modules/@itsumma/textarena/scss/style.scss",
               "src/styles.scss"
             ],
             "scripts": []
