@@ -2,10 +2,15 @@
 
 ## publish
 
-`npx ng build angular-textarena`
 
-`cd dist/angular-textarena/`
+`cd projects/angular-textarena`
 
 Change package version in package.json
 
-`npm publish`
+`cd ../../`
+
+`npx ng build angular-textarena --prod`
+
+`cd dist/angular-textarena/`
+
+`npm publish --access public`
