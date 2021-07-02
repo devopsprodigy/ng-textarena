@@ -1,17 +1,14 @@
 import {Component, OnInit, Output, EventEmitter, Input, ViewChild, ElementRef, forwardRef} from '@angular/core';
-import Textarena from 'textarena';
-import TextarenaOptions from 'textarena/lib/interfaces/TextarenaOptions';
-import TextarenaData from 'textarena/lib/interfaces/TextarenaData';
+import Textarena from '@itsumma/textarena';
+import TextarenaOptions from '@itsumma/textarena/lib/interfaces/TextarenaOptions';
+import TextarenaData from '@itsumma/textarena/lib/interfaces/TextarenaData';
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
 import {AngularTextarenaService} from '../angular-textarena.service';
 @Component({
   selector: 'ng-textarena-formable',
-  template: ' <div id="txt-container" #textArenaContainer></div> ',
+  template: ' <div #textArenaContainer></div> ',
   styles: [
     `
-      #txt-container {
-        display: flex;
-      }
     `,
   ],
   providers: [

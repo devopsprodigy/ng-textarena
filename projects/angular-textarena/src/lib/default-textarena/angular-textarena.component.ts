@@ -7,19 +7,16 @@ import {
   Output,
   ViewChild,
 } from '@angular/core';
-import Textarena from 'textarena';
-import TextarenaOptions from 'textarena/lib/interfaces/TextarenaOptions';
-import TextarenaData from 'textarena/lib/interfaces/TextarenaData';
+import Textarena from '@itsumma/textarena';
+import TextarenaOptions from '@itsumma/textarena/lib/interfaces/TextarenaOptions';
+import TextarenaData from '@itsumma/textarena/lib/interfaces/TextarenaData';
 import { AngularTextarenaService } from '../angular-textarena.service';
 
 @Component({
   selector: 'ng-textarena',
-  template: ' <div id="txt-container" #textArenaContainer></div> ',
+  template: ' <div #textArenaContainer></div> ',
   styles: [
     `
-      #txt-container {
-        display: flex;
-      }
     `,
   ],
 })

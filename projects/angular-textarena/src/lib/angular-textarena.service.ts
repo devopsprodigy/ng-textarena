@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import TextarenaOptions from 'textarena/lib/interfaces/TextarenaOptions';
+import { defaultOptions } from '@itsumma/textarena';
+import TextarenaOptions from '@itsumma/textarena/lib/interfaces/TextarenaOptions';
 import dataHtml from './default/dataHtml';
 
 @Injectable({
@@ -9,7 +10,10 @@ export class AngularTextarenaService {
 
   constructor() { }
 
-  createOptions(settings: TextarenaOptions): TextarenaOptions{
+  createOptions(settings: TextarenaOptions): TextarenaOptions | undefined {
+    if (!settings) {
+      return defaultOptions;
+    }
     const obj: TextarenaOptions = {};
     obj.initData = settings?.initData || {dataHtml};
     obj.debug = settings?.debug || false;
