@@ -41,11 +41,6 @@ export class AngularTextarenaFormableComponent implements OnInit, ControlValueAc
       onChange: (e) => {
         this.updateValue(e);
       },
-      onReady: (e) => {
-        setTimeout(() => {
-          this.updateValue(e);
-        }, 0);
-      },
       initData,
       ...options,
     });
