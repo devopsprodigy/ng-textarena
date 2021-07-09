@@ -24,6 +24,8 @@ export class AngularTextarenaFormableComponent implements OnInit, ControlValueAc
   @Input() formControlName: string;
   @ViewChild('textArenaContainer', {static: true}) textArenaContainer: ElementRef;
   private html: TextarenaData;
+  private textArena;
+
   onChange = (value: any) => {};
   onTouched = () => {};
 
@@ -37,7 +39,7 @@ export class AngularTextarenaFormableComponent implements OnInit, ControlValueAc
     const elem = this.textArenaContainer.nativeElement;
     const options = this.taService.createOptions(this.settings);
     const {value: initData} = this.controlContainer.control.get(this.formControlName);
-    const textArena = new Textarena(elem, {
+    this.textArena = new Textarena(elem, {
       onChange: (e) => {
         this.updateValue(e);
       },
@@ -57,7 +59,7 @@ export class AngularTextarenaFormableComponent implements OnInit, ControlValueAc
   writeValue(_value: TextarenaData) {
     if (_value) {
       this.html = _value;
-      console.log(this.html);
+      this.textArena.setData(_value);
     }
   }
 
