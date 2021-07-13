@@ -59,6 +59,9 @@ export class AngularTextarenaFormableComponent implements OnInit, ControlValueAc
   writeValue(_value: TextarenaData) {
     if (_value) {
       this.html = _value;
+      if (this.textArena.getData().dataHtml !== this.html.dataHtml){
+        this.textArena.setData(this.html);
+      }
       console.log(this.html);
     }
   }
