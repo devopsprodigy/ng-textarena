@@ -22,6 +22,7 @@ import {AngularTextarenaService} from '../angular-textarena.service';
 export class AngularTextarenaFormableComponent implements OnInit, ControlValueAccessor {
   @Input() settings: TextarenaOptions | undefined;
   @Input() formControlName: string;
+  @Input() disabled?: boolean;
   @ViewChild('textArenaContainer', {static: true}) textArenaContainer: ElementRef;
   private html: TextarenaData;
   private textArena;
@@ -38,6 +39,9 @@ export class AngularTextarenaFormableComponent implements OnInit, ControlValueAc
   ngOnInit(): void {
     const elem = this.textArenaContainer.nativeElement;
     const options = this.taService.createOptions(this.settings);
+    if (this.disabled !== undefined) {
+      options.editable = !this.disabled;
+    }
     const {value: initData} = this.controlContainer.control.get(this.formControlName);
     this.textArena = new Textarena(elem, {
       onChange: (e) => {
