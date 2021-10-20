@@ -1,8 +1,8 @@
-import {Component, OnInit, Output, EventEmitter, Input, ViewChild, ElementRef, forwardRef, Optional, Host, SkipSelf} from '@angular/core';
+import {Component, OnInit, Input, ViewChild, ElementRef, forwardRef, Optional, Host, SkipSelf, OnChanges, SimpleChanges} from '@angular/core';
 import Textarena from '@itsumma/textarena';
 import TextarenaOptions from '@itsumma/textarena/lib/interfaces/TextarenaOptions';
 import TextarenaData from '@itsumma/textarena/lib/interfaces/TextarenaData';
-import {AbstractControl, ControlContainer, ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
+import {ControlContainer, ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
 import {AngularTextarenaService} from '../angular-textarena.service';
 @Component({
   selector: 'ng-textarena-formable',
@@ -19,9 +19,10 @@ import {AngularTextarenaService} from '../angular-textarena.service';
     },
   ],
 })
-export class AngularTextarenaFormableComponent implements OnInit, ControlValueAccessor {
+export class AngularTextarenaFormableComponent implements OnInit, ControlValueAccessor, OnChanges {
   @Input() settings: TextarenaOptions | undefined;
   @Input() formControlName: string;
+  @Input() disabled?: boolean;
   @ViewChild('textArenaContainer', {static: true}) textArenaContainer: ElementRef;
   private html: TextarenaData;
   private textArena;
@@ -38,6 +39,9 @@ export class AngularTextarenaFormableComponent implements OnInit, ControlValueAc
   ngOnInit(): void {
     const elem = this.textArenaContainer.nativeElement;
     const options = this.taService.createOptions(this.settings);
+    if (this.disabled !== undefined) {
+      options.editable = !this.disabled;
+    }
     const {value: initData} = this.controlContainer.control.get(this.formControlName);
     this.textArena = new Textarena(elem, {
       onChange: (e) => {
@@ -46,6 +50,12 @@ export class AngularTextarenaFormableComponent implements OnInit, ControlValueAc
       initData,
       ...options,
     });
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes.disabled && this.disabled !== undefined && this.textArena) {
+      this.textArena.setEditable(!this.disabled);
+    }
   }
 
   registerOnChange(fn: any) {
