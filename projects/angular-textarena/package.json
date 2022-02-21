@@ -1,13 +1,13 @@
 {
   "name": "@itsumma/ng-textarena",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "peerDependencies": {
     "@angular/common": "^10.2.4",
     "@angular/core": "^10.2.4"
   },
   "dependencies": {
     "tslib": "^2.0.0",
-    "@itsumma/textarena": "^2.0.0"
+    "@itsumma/textarena": "^2.1.0"
   },
   "description": "This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.2.4.",
   "main": "karma.conf.js",

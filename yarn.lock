@@ -1099,10 +1099,10 @@
   resolved "https://registry.yarnpkg.com/@istanbuljs/schema/-/schema-0.1.3.tgz#e45e384e4b8ec16bce2fd903af78450f6bf7ec98"
   integrity sha512-ZXRY4jNvVgSVQ8DL3LTcakaAtXwTVUxE81hslsyD2AtoXW/wVob10HkOJ1X/pAlcI7D+2YoZKg5do8G/w6RYgA==
 
-"@itsumma/textarena@^2.0.0":
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/@itsumma/textarena/-/textarena-2.0.0.tgz#9ce25f564617909f09d97f2dad8eaf0dce09bf79"
-  integrity sha512-rDrSIS7GvnHKCOhTZYskaGsPite+R8/jl3aU48Piytd3xbExzI2DRxIIJZTZDuoyCDjQMFj2RCCXZmJnTswx0Q==
+"@itsumma/textarena@^2.1.0":
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/@itsumma/textarena/-/textarena-2.1.0.tgz#8cc0e07ea29a751adec9c7a2ab12f4145bc04648"
+  integrity sha512-l4MBN5GsK0T/nausMFn95gtXe+U/PiZ7PaoXZ6Cy4wQuPd908q9QzkBlHLnILoccFkoAsgbjDJxj2oR19y11gQ==
   dependencies:
     lit "^2.0.2"
     typograf "^6.11.3"
@@ -8806,9 +8806,9 @@ typescript@~4.0.2:
   integrity sha512-yi7M4y74SWvYbnazbn8/bmJmX4Zlej39ZOqwG/8dut/MYoSQ119GY9ZFbbGsD4PFZYWxqik/XsP3vk3+W5H3og==
 
 typograf@^6.11.3:
-  version "6.14.0"
-  resolved "https://registry.yarnpkg.com/typograf/-/typograf-6.14.0.tgz#075c308af343681a72fa5aad1922787042a92bfa"
-  integrity sha512-KEtACy76LEEmt5qxHZ4/Pr7BHPATJbKU5R3igbRfmA+9aOQTCZa/JjybKYKqTVxihszQoX6bSJ4ZyXBeoOf5Dg==
+  version "6.14.1"
+  resolved "https://registry.yarnpkg.com/typograf/-/typograf-6.14.1.tgz#2db7937c75796b16b532cefed85c036217a9784f"
+  integrity sha512-oMVirfP09iKI4Bk2BQKxdN00xdkyWHN+v8E4qoHxyoVOuPH7L/RI6/8fF4XBOcEPNNfEsy1yNN958Ocv6/Y0pA==
 
 ua-parser-js@0.7.21:
   version "0.7.21"

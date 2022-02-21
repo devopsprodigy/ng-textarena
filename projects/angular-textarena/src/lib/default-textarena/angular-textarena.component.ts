@@ -7,9 +7,7 @@ import {
   Output,
   ViewChild,
 } from '@angular/core';
-import Textarena from '@itsumma/textarena';
-import TextarenaOptions from '@itsumma/textarena/lib/interfaces/TextarenaOptions';
-import TextarenaData from '@itsumma/textarena/lib/interfaces/TextarenaData';
+import Textarena, { TextarenaOptions, TextarenaData } from '@itsumma/textarena';
 import { AngularTextarenaService } from '../angular-textarena.service';
 
 @Component({

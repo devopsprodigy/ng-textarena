@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
-import { defaultOptions } from '@itsumma/textarena';
-import TextarenaOptions from '@itsumma/textarena/lib/interfaces/TextarenaOptions';
+import { defaultOptions, TextarenaOptions } from '@itsumma/textarena';
 
 @Injectable({
   providedIn: 'root'
